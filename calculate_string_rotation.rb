@@ -13,6 +13,16 @@
 # "Esham", "Esham" => 0
 # "dog", "god" => -1
 
+# Strategy
+#   Find the difference in index between first letter of first and wherever it appears in second.
+#   Apply that difference to each character of first.
+#     Remember to wrap around if the index is longer than length of word - 1.
+
+#  If shifted_first == second, then return the index. If not, return -1. 
+
 def shifted_diff(first, second)
-  
+  first, second = first.split(""), second.split("")
+  puts second.index(first[0])
 end
+
+puts shifted_diff("coffee", "eecoff")
