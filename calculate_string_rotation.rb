@@ -22,3 +22,12 @@ def shifted_diff(first, second)
   return -1 unless first.length == second.length
   shift = (second * 2).index(first) || -1
 end
+
+=begin
+
+Thoughts
+  At first, I was thinking about this kata totally wrong. With hindsight, I can see that I was making a big conceptual mistake.
+
+  When a letter is rotated beyond the end of the word length, I was trying to calculate exactly how many times it wrapped round, and then removing the superfluous wraps from the shift number. This method was brittle, and I think the reason why I failed the "random" tests (although they're not viewable on CodeWars). It's much more reliable to simply print the second word twice, and find the index of the first word in that second word. This way, you don't need to worry about "wrapping" around the end of the word at all.
+
+=end
