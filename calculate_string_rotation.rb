@@ -22,22 +22,29 @@
       # if index > first.length-1 then index = index minus length
 #  If shifted_first == second, then return the index. If not, return -1.
 
+# Improvements to make:
+  # 1) Creation of shifted_first array could be cleaner. Use the %w trick?
+
 def shifted_diff(first, second)
   first, second = first.split(""), second.split("")
   shift = second.index(first[0])
   return -1 if !shift
-  shifted_first = []
-  (first.length).times { shifted_first << " " }
-  first.each_with_index do |letter, index|
-    new_index = index + shift
-    new_index = new_index - first.length if new_index > first.length - 1
-    shifted_first[new_index] = letter
-  end
-  shifted_first == second ? shift : -1
+  shift_array(first, shift) == second ? shift : -1
 end
 
-puts shifted_diff("coffee", "eecoff")
-puts shifted_diff("eecoff", "coffee")
+def shift_array(arr, shift)
+  shifted_arr = []
+  (arr.length).times { shifted_arr << " " }
+  arr.each_with_index do |letter, index|
+    new_index = index + shift
+    new_index = new_index - arr.length if new_index > arr.length - 1
+    shifted_arr[new_index] = letter
+  end
+  shifted_arr
+end
+
+puts shifted_diff("coffee", "eecoff") # 2
+puts shifted_diff("eecoff", "coffee") # 4
 puts shifted_diff("moose", "Moose") #  => -1
 puts shifted_diff("isn't", "'tisn") # => 2
 puts shifted_diff("Esham", "Esham") # => 0
