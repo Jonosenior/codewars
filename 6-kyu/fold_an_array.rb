@@ -30,7 +30,10 @@ The input array should not be modified!
 =end
 
 def fold_array(array, runs)
-  solution = []
+  runs.times { fold_once(array) }
+end
+
+def fold_once(array, solution = [])
   until array.length == 0 do
     solution << array.pop + array.shift
     solution << array.pop if array.length == 1
