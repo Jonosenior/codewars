@@ -27,19 +27,30 @@ If an array with one element is folded, it stays as the same array.
 
 The input array should not be modified!
 
+Improvements:
+  - Add || 0 line into + array.shift so it just adds to zero rather than nil then you can remove the ...if length == 1 line.
 =end
 
 def fold_array(array, runs)
-  runs.times { fold_once(array) }
+  runs.times { array = fold_once(array)}
+  array
 end
 
 def fold_once(array, solution = [])
   until array.length == 0 do
-    solution << array.pop + array.shift
-    solution << array.pop if array.length == 1
+    solution << array.pop + (array.shift || 0)
+    # solution << array.pop if array.length == 1
   end
   solution
 end
 
-puts fold_array([1,2,3,4,5], 1) # => [6,6,3]
-# fold_array([1,2,3,4,5], 2) # => [9,6]
+# def fold_once(array, solution = [])
+#   return array if runs == 0
+#   solution << array.pop + (array.shift || 0)
+#   array = fold_once(array)
+# end
+
+
+print fold_array([1,2,3,4,5], 1) # => [6,6,3]
+print fold_array([1,2,3,4,5], 2) # => [9,6]
+print fold_array([1,2,3,4,5], 3) # => [15]
