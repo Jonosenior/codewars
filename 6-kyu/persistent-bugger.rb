@@ -16,6 +16,10 @@ For example:
 =end
 
 
-def persistence(n)
-    # your code
+def persistence(n, times_multiplied = 0)
+  return times_multiplied if n.to_s.length == 1
+  n = n.to_s.split('').map(&:to_i).reduce(:*)
+  persistence(n, times_multiplied + 1)
 end
+
+puts persistence(4)
