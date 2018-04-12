@@ -1,4 +1,4 @@
-# reverse a string
+# Reverse a string (without using #reverse...)
 
 def reverse_string(str)
   reversed = []
