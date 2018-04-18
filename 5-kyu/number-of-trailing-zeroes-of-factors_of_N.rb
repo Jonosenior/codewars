@@ -18,8 +18,14 @@ zeros(12) = 2
 # 12! = 479001600 --> 2 trailing zeros
 Hint: You're not meant to calculate the factorial. Find another way to find the number of zeros.
 
+Theory for solution taken from: http://www.purplemath.com/modules/factzero.htm
 =end
 
-def zeros(n)
-
+def zeros(n, i=1, all_divisions=[])
+  divide_by_power_of_five = n/(5**i).floor
+  all_divisions << divide_by_power_of_five
+  return all_divisions.reduce(:+) if divide_by_power_of_five < 1
+  zeros(n, i+=1, all_divisions)
 end
+
+puts zeros(4617)
