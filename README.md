@@ -95,3 +95,13 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   Solution: The solution is straightforward (convert the string to an array, iterate over each word-element to capitalize the first character, then convert back to a string).
 
   Notes: Taking a cue from highly-ranked solutions on CodeWars, I passed the #map method a proc argument with the neat Ruby shorthand ('&:capitalize'). This is more concise than explicitly calling .capitalize in a block, as I did in the original. I'll try to remember to use this shortcut from now on.
+
+## 7-Kyu - Shortest Word
+
+  Challenge: Given a string, return the length of the shortest word in that string.
+
+  Solution: Split the string, sort that array by length, then return the length of the first element.
+
+  Notes: The original solution described above is a one-liner, but there is a yet better way. Rather than sorting the array (unnecessary because we don't care about the lengths of elements other than the smallest), it's better to use "str.split(" ").map(&:length).min". Basically, pass #length as a proc and make use of Ruby's #min method.
+
+  
