@@ -1,17 +1,21 @@
 # Codewars Problem Sets
 
-This is a collection of my solutions to coding problems on CodeWars (the site calls them 'katas').
+This is a collection of my solutions to coding problems on CodeWars, which the site calls 'katas':
+
+> In our dojo, kata are real code challenges focused on improving skill and technique. Some train programming fundamentals, while others focus on complex problem solving.
+
+Players are ranked, with new users assigned a rating of 8 kyu, where 1 kyu is the best.
 
 My CodeWars profile is [here](https://www.codewars.com/users/jonosenior).
 
-As of 12.04.2018:
+As of <b>12.04.2018</b>:
 
-Total code challenges completed: 20.
+* Total code challenges completed: <b>20</b>.
 
-Overall CodeWars rank: 6 kyu.
+* Overall CodeWars rank: <b>6 kyu</b>.
 
 
-## Notes on solutions
+## Notes on (some) solutions
 
 ### Persistent-bugger
 
@@ -38,3 +42,24 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
     * Sum all the whole numbers you got in your divisions. This is the number of trailing zeroes.
 
   That's what I recreate in my method. I use recursion to perform the multiplication by increasing powers of five, where the base case is if the division produces a number less than one.
+
+## 7-Kyu - Mumbling
+
+  I refactored my solution to use the #map method (rather than #each) to make my code more idiomatic Ruby. So whereas in my original solution I created an empty answer array before iterating over the input + pushing to that answer array; in my refactored solution the answer array is set equal to the product of  #map.with_index.
+
+## 7-Kyu - Vowel Count
+
+  This is one of those challenges that must be much easier in Ruby - with its tailor-made iterator methods - than other languages. I didn't realise that the #count method works for strings as well as arrays, so my original solution superfluously transformed the input string into an array, then iterated over it with #count. The currently-displayed solution iterates over the input string itself, for a very short method.
+
+## 7-Kyu - Highest and Lowest
+
+  The challenge gives a string of numbers, and the solution should return the highest and lowest number.
+  
+  My first iteration of the solution:
+    * converted the input string to an array of numbers (with '.split.map(&:to_i)').
+    * defined 'high' and 'low' variables equal to the first element of the numbers array.
+    * iterated with #each over the numbers array, redefining the high and low variables if the element was higher or lower.
+
+  (A small bug I had to solve was forgetting to convert the input string to numbers before transforming into an array).
+
+  But, this solution was much wordier than my current solution. A much more streamlined version (I found googling) is to make use of Ruby's #max and #min methods. Then you don't need to explicitly use #each to iterate over the method. This is a general principle I want to improve on: not relying on #each as an all-purpose iterator, but to use Ruby's native method to write more idiomatic code.
