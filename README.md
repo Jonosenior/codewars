@@ -87,3 +87,11 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   Using #tr allows for a much more concise solution, with no need to convert the input string to an array:
         dna.tr("ACTG", "TGAC")
+
+## 7-Kyu - Jaden Casing Strings
+
+  Challenge: capitalize the first letter of each word in a string.
+
+  Solution: The solution is straightforward (convert the string to an array, iterate over each word-element to capitalize the first character, then convert back to a string).
+
+  Notes: Taking a cue from highly-ranked solutions on CodeWars, I passed the #map method a proc argument with the neat Ruby shorthand ('&:capitalize'). This is more concise than explicitly calling .capitalize in a block, as I did in the original. I'll try to remember to use this shortcut from now on.
