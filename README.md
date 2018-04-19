@@ -104,4 +104,8 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   Notes: The original solution described above is a one-liner, but there is a yet better way. Rather than sorting the array (unnecessary because we don't care about the lengths of elements other than the smallest), it's better to use "str.split(" ").map(&:length).min". Basically, pass #length as a proc and make use of Ruby's #min method.
 
-  
+## 7-Kyu - Sum the Numbers
+
+  Challenge: Given two integers, sum the numbers that comprise the range between them.
+
+  Solution: First, return the range of either a..b or b..a (if a is larger then the latter, otherwise the former). Then call #reduce(&:+) on the range. 
