@@ -54,7 +54,7 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 ## 7-Kyu - Highest and Lowest
 
   The challenge gives a string of numbers, and the solution should return the highest and lowest number.
-  
+
   My first iteration of the solution:
     * converted the input string to an array of numbers (with '.split.map(&:to_i)').
     * defined 'high' and 'low' variables equal to the first element of the numbers array.
@@ -63,3 +63,10 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   (A small bug I had to solve was forgetting to convert the input string to numbers before transforming into an array).
 
   But, this solution was much wordier than my current solution. A much more streamlined version (I found googling) is to make use of Ruby's #max and #min methods. Then you don't need to explicitly use #each to iterate over the method. This is a general principle I want to improve on: not relying on #each as an all-purpose iterator, but to use Ruby's native method to write more idiomatic code.
+
+## 7-Kyu - Descending Order
+  Challenge: Given a non-negative integer, return its digits in descending order.
+
+  Solution: Convert the integer into an array of digits, sort it and reverse it, then convert back into an integer.
+
+  I was happy to do this as a one-liner - it feels like I'm making progress in writing concise code & chaining methods (although I'm aware this is perhaps not the most readable code so not the best choice for using in deployment). Discovering the #map(&:to_i) tool is very useful for these challenges. 

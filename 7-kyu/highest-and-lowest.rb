@@ -17,25 +17,8 @@ Output string must be two numbers separated by a single space, and highest numbe
 =end
 
 def high_and_low(numbers)
-  high = numbers.first
-  low = numbers.first
-  numbers.each do |n|
-    high = n if n > high
-    low = n if n < low
-  end
-  "#{high} #{low}"
-end
-
-def high_and_low(numbers)
   numbers = numbers.split(" ").map(&:to_i)
   "#{numbers.max} #{numbers.min}"
-  # high = numbers.first
-  # low = numbers.first
-  # numbers.each do |n|
-  #   high = n if n > high
-  #   low = n if n < low
-  # end
-  # "#{high} #{low}"
 end
 
 
