@@ -8,9 +8,9 @@ Players are ranked, with new users assigned a rating of 8 kyu, where 1 kyu is th
 
 My CodeWars profile is [here](https://www.codewars.com/users/jonosenior).
 
-As of <b>12.04.2018</b>:
+As of <b>19.04.2018</b>:
 
-* Total code challenges completed: <b>20</b>.
+* Total code challenges completed: <b>28</b>.
 
 * Overall CodeWars rank: <b>6 kyu</b>.
 
@@ -69,4 +69,21 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   Solution: Convert the integer into an array of digits, sort it and reverse it, then convert back into an integer.
 
-  I was happy to do this as a one-liner - it feels like I'm making progress in writing concise code & chaining methods (although I'm aware this is perhaps not the most readable code so not the best choice for using in deployment). Discovering the #map(&:to_i) tool is very useful for these challenges. 
+  I was happy to do this as a one-liner - it feels like I'm making progress in writing concise code & chaining methods (although I'm aware this is perhaps not the most readable code so not the best choice for using in deployment). Discovering the #map(&:to_i) tool is very useful for these challenges.
+
+## 7-Kyu - Complementary DNA
+
+  Challenge: Given a DNA string (eg "ATTGC"), return its complementary bases ("TAACG").
+
+  Solution: I added the complementary relationships as key/value pairs in a hash, then iterated with #map over each character in the input string, passing it as a key to the hash to return the complementary value.
+
+  Note: Looking at the top-rated CodeWars solutions, they made use of Ruby's #tr method, which I hadn't seen before. #tr is called on a string. From the documentation:
+
+  > Returns a copy of str with the characters in from_str replaced by the corresponding characters in to_str. If to_str is shorter than from_str, it is padded with its last character in order to maintain the correspondence.
+
+    > "hello".tr('el', 'ip')      #=> "hippo"
+
+    > "hello".tr('aeiou', '*')    #=> "h*ll*"
+
+  Using #tr allows for a much more concise solution, with no need to convert the input string to an array:
+        dna.tr("ACTG", "TGAC")
