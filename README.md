@@ -137,3 +137,16 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   Original solution: downcase and split the string; iterate length.times and pop the last character. Check if the remaining array contains this last character - if so return false.
 
   Refactored solution: Make use of Ruby's #chars and #uniq methods. #chars is called on a string and returns an array with each character of the string as a separate element. #uniq returns a new array by removing duplicate values from self. So you just need to compare the two: "string.downcase.chars.uniq == string.downcase.chars".
+
+## 7-Kyu - Is this a triangle?
+
+  Challenge: Given the lengths of 3 sides, return true if they could build a triangle. (From wikipedia: "the triangle inequality states that for any triangle, the sum of the lengths of any two sides must be greater than or equal to the length of the remaining side").
+
+  Original solution: Use sets of logic gates to manually go through each possible sum calculation (ie, return false if a + b < c, return false if...). BUT, having the best-rated solutions feature a better version of this. Connect all the logic in a single line with && operators:
+  ```
+    a + b > c && a + c > b && b + c > a
+  ```
+
+  But there's an even better way. Add all three sides to an array, sort it, then see if arr[0] + arr[1] > arr[2]. Since the smallest sides come first, if their sum is greater than the third side, then the other two combinations will be as well. So you only need to do one calculation, not three. Neat!
+
+  
