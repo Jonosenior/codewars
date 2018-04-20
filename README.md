@@ -108,4 +108,16 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   Challenge: Given two integers, sum the numbers that comprise the range between them.
 
-  Solution: First, return the range of either a..b or b..a (if a is larger then the latter, otherwise the former). Then call #reduce(&:+) on the range. 
+  Solution: First, return the range of either a..b or b..a (if a is larger then the latter, otherwise the former). Then call #reduce(&:+) on the range.
+
+## 7-Kyu - Disemvowel Trolls
+
+  Challenge: Return a given string without its vowels.
+
+  Solution: #gsub and /[aeiouAEIOU]/. Basically, the easiest RegEx of all time. Which is nice because I'm quite intimidated and scared of RegEx - so it's good to practice using it on an easy one.
+
+## 7-Kyu Growth of a Population
+
+  Challenge: Calculate how many years it will take for a town to reach a certain population, given inputs for starting population, percentage growth rate and net immigration.
+
+  Notes: This challenge is waaay harder than other 7-Kyu challenges. I was stupidly stuck on a single failing test case for a long time - I couldn't work out why it would pass every test except one. But I wasn't thinking clearly about edge cases - what happens if the population EQUALS (not exceeds) the given population threshold. So to pass the test I needed to change "sum > p" to "sum >= p". A very basic oversight, but good to keep in mind for the future.
