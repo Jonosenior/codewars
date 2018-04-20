@@ -121,3 +121,11 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   Challenge: Calculate how many years it will take for a town to reach a certain population, given inputs for starting population, percentage growth rate and net immigration.
 
   Notes: This challenge is waaay harder than other 7-Kyu challenges. I was stupidly stuck on a single failing test case for a long time - I couldn't work out why it would pass every test except one. But I wasn't thinking clearly about edge cases - what happens if the population EQUALS (not exceeds) the given population threshold. So to pass the test I needed to change "sum > p" to "sum >= p". A very basic oversight, but good to keep in mind for the future.
+
+## 7-Kyu Find the Next Perfect Square
+
+  Challenge: Given an integer, return the next-highest perfect square. If the given number isn't itself a perfect square, return -1.
+
+  Solution: My first idea was a basic loop that adds one until the next square is found (test for square uses "num % 1 == 0").
+
+  Notes: My solution works but is definitely not the most efficient search method. Reading the best-rated CodeWars solutions, I realised a much better method is to find the square root of the given number, add one then find the square. Duh! 
