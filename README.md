@@ -178,3 +178,20 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   * "^" signifies the start of a line; "$" the end of a line.
   * '\d' matches a digit, {4} means four of those digits in a row.
   * The | in the middle means or - the whole thing matches either four or six consecutive digits (but not five).
+
+## 7-Kyu - Row Sum of Odd Numbers
+
+  Challenge: Given the triangle of consecutive odd numbers:
+
+               1
+            3     5
+         7     9    11
+     13    15    17    19
+  21    23    25    27    29
+
+  Calculate the row sums of this triangle from the row index (starting at index 1) e.g.:
+
+  row_sum_odd_numbers(1); # 1
+  row_sum_odd_numbers(2); # 3 + 5 = 8
+
+  Solution: My shortest solution so far. Drawing it out on paper it's quickly obvious that a shortcut to finding the sum of row n is to calculate n to the power of 3: n**3. (That's the whole solution!).
