@@ -210,4 +210,10 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   ```
   (a+b).to_s(2)
   ```
-  Research for this solution was useful as I need to get my head around binary at some point. 
+  Research for this solution was useful as I need to get my head around binary at some point.
+
+## 7-Kyu - Binary Array to Number
+
+  Challenge: Given an array representing a binary number, convert it to an integer.
+
+  Solution: My previous challenge asked me to convert integer to binary - for which I used Ruby's #to_s(base) method (easy peasy). This challenge asks for a method that converts the other way - binary to integer. Again there's a super easy Ruby method: #to_i(base).
