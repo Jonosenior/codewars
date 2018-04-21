@@ -1,6 +1,6 @@
 # Codewars Problem Sets
 
-This is a collection of my solutions to coding problems on CodeWars, which the site calls 'katas':
+This is a collection of my solutions to coding problems on CodeWars, which the site calls 'katas', along with notes on many of my solutions.
 
 > In our dojo, kata are real code challenges focused on improving skill and technique. Some train programming fundamentals, while others focus on complex problem solving.
 
@@ -8,11 +8,11 @@ Players are ranked, with new users assigned a rating of 8 kyu, where 1 kyu is th
 
 My CodeWars profile is [here](https://www.codewars.com/users/jonosenior).
 
-As of <b>19.04.2018</b>:
+As of <b>21.04.2018</b>:
 
-* Total code challenges completed: <b>28</b>.
+* Total code challenges completed: <b>42</b>.
 
-* Overall CodeWars rank: <b>6 kyu</b>.
+* Overall CodeWars rank: <b>5 kyu</b>.
 
 
 ## Notes on (some) solutions
@@ -217,3 +217,15 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   Challenge: Given an array representing a binary number, convert it to an integer.
 
   Solution: My previous challenge asked me to convert integer to binary - for which I used Ruby's #to_s(base) method (easy peasy). This challenge asks for a method that converts the other way - binary to integer. Again there's a super easy Ruby method: #to_i(base).
+
+## 7-Kyu - Sum of the First Nth Term of Series
+
+  Challenge: Write a function which returns the sum of the following series up to the nth parameter:
+
+    Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+
+  Solution: Create an array of the range 1 to n. Use map to perform the following calculation on each element: 1/(n*3) - 2. The outputted array produces the requested series up to the nth element - convert to a decimal with #to_f. Then use #reduce(&:+) to add each element in the array.
+
+  Notes: One tricky part of this problem is always outputting a number with two decimal points - Ruby's #round method won't do that automatically if the answer is 1.0, for example. I discovered the #sprintf('%.2f', num) method to get round this - the first argument is the desired formatting (here, 2 decimal points), the second argument is the number you want to convert. The output is a string.
+
+  The second tricky part was an edge case - what if the method is passed zero? This broke the #sprintf first iteration of my solution. The workaround is to include an "or 0" line in the second argument for #sprintf - so it never gets passed nil.
