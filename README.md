@@ -200,4 +200,14 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   Challenge: Remove the smallest element from an array of numbers, without changing the order of the array.
 
-  Solution: Find the index of the smallest element (with array.min), and #delete_at this index. To deal with empty arrays, the solution needs a "return [] if array.empty?" line - otherwise empty arrays will return an error. 
+  Solution: Find the index of the smallest element (with array.min), and #delete_at this index. To deal with empty arrays, the solution needs a "return [] if array.empty?" line - otherwise empty arrays will return an error.
+
+## 7-Kyu - Binary Addition
+
+  Challenge: Given two integers, return their sum in binary.
+
+  Solution: Super easy with Ruby's #to_s(base) method:
+  ```
+  (a+b).to_s(2)
+  ```
+  Research for this solution was useful as I need to get my head around binary at some point. 
