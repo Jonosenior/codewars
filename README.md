@@ -195,3 +195,9 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
   row_sum_odd_numbers(2); # 3 + 5 = 8
 
   Solution: My shortest solution so far. Drawing it out on paper it's quickly obvious that a shortcut to finding the sum of row n is to calculate n to the power of 3: n**3. (That's the whole solution!).
+
+## 7-Kyu - Remove the Minimum
+
+  Challenge: Remove the smallest element from an array of numbers, without changing the order of the array.
+
+  Solution: Find the index of the smallest element (with array.min), and #delete_at this index. To deal with empty arrays, the solution needs a "return [] if array.empty?" line - otherwise empty arrays will return an error. 
