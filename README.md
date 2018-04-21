@@ -149,4 +149,32 @@ I was also happy to use the #reduce method, because I tend to overuse the bulkie
 
   But there's an even better way. Add all three sides to an array, sort it, then see if arr[0] + arr[1] > arr[2]. Since the smallest sides come first, if their sum is greater than the third side, then the other two combinations will be as well. So you only need to do one calculation, not three. Neat!
 
-  
+## 7-Kyu - Credit Card Mask
+
+  Challenge: Change all but the last four characters of a given string to "#".
+
+  Solution: Pop the last four characters and save them to a variable. Then use #map to iterate over an array of the remaining string, converting each character to "#", and add the last four characters to the end.
+
+## 7-Kyu - Printer Errors
+
+  Challenge: Given a string of letters representing printer data, where the letters a-m are correct and n-z are errors, determine the ratio of incorrect:total_letters.
+
+  Solution: use #scan(/[n-z]/).length to count the number of errors. Other possibilities would be to use #count('n-z') or #gsub(/[n-z]/,"").
+
+## 7-Kyu - RegEx Validate PIN code
+
+  Challenge: Return true if method is passed a valid PIN code (only digits; can be either four or six digits long), otherwise false.
+
+  Solution: A fabulous RegEx one-liner:
+  ```
+  !!/^\d{4}$|^\d{6}$/.match(pin)
+  ```
+  Notes: This was an extremely useful challenge to solve because researching a solution taught me valuable RegEx strategies.
+
+  The important parts to the solution are:
+  * #match is called on a RegEx object and returns a Match Object if it matches the string passed as an argument (here, pin).
+  * The "!!" at the beginning turns the MatchObject into a Boolean.
+  * No square brackets. Square brackets enclose a single character.  
+  * "^" signifies the start of a line; "$" the end of a line.
+  * '\d' matches a digit, {4} means four of those digits in a row.
+  * The | in the middle means or - the whole thing matches either four or six consecutive digits (but not five).
