@@ -30,3 +30,13 @@
   end
   ```
   This is really elegant, because you use the first three elements to work out if the outlier is odd or even, and you return that as a symbol which references the #:odd? or #:even? methods, saved as the 'outlier' variable. You then pass that variable to #find, which returns the outlier element.
+
+## Sum of Digits (Digital Root)
+
+  Challenge: Create a digital root function. The digital root is the recursive sum of all the digits of an integer. Given n, return the sum of the digits of n; if the sum has more than one digit, repeat until a single digit sum is produced.
+
+  Solution: Convert n to a string, split into an array of digits, convert each element back into a number, then use reduce to sum each element. Loop this (with a one-line while statement) until n < 10.
+
+  Notes: My original solution was 9 lines, and used a basic loop plus if/else statments to perform the above summing steps. Using the one-line "until n < 10" statement is much more elegant, and you can do the same thing in four lines.
+
+  Also, the nature of this problem (repeating the same steps until a base case is reached) is a perfect fit for recursion. I've included a third, recursive solution in my code.  
