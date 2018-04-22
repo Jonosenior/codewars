@@ -17,6 +17,8 @@ As of <b>21.04.2018</b>:
 
 ## Notes on (some) solutions
 
+* [6-Kyu challenges](notes-6kyu.md)
+
 ### Persistent-bugger
 
 FINALLY I get to use recursion in the wild (ie, not on a problem that I know exists to practice recursion). The problem asks to find the 'multiplicative persistence' of a number - ie, how many times you have to multiply the digits of that number together before you reach a single digit number. Since the steps of the algorithm are identical all the way down (take a number, divide it into its constituent digits, multiply those digits together, check if the result is a one-digit number, repeat), this was a perfect candidate for recursion.
