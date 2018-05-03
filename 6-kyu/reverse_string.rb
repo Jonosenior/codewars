@@ -7,4 +7,8 @@ def reverse_string(str)
   reversed.join
 end
 
+def reverse_string(str)
+
+end
+
 puts reverse_string("hello")
