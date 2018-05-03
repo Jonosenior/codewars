@@ -1,12 +1,17 @@
 # Notes on 6-Kyu Challenges
 
+## Stop-gninnips-my-sdrow.rb
+
+  Challenge: Given a string, return that string but reverse all words longer than 4 characters.
+
+  Solution: Pretty straightforward one-liner. Split the string on spaces, use #map to return each word if it's less than 5 chars, otherwise return the reverse of the word, then join the whole thing back together.
 
 ## Playing-with-digits
     Challenge: Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p we want to find a positive integer k, if it exists, such as the sum of the digits of n taken to the successive powers of p is equal to k * n.
 
     Solution: For each digit of n, find the power of the digit to p, then add this to the overall sum and iterate p by one. Then, divide the sum total by n and return this if it's an integer - if not return -1.
 
-    Notes: I assumed this problem would use #reduce, but I couldn't work out how to iterate an external variable (p) AND add to the sum, so I just used #each instead. 
+    Notes: I assumed this problem would use #reduce, but I couldn't work out how to iterate an external variable (p) AND add to the sum, so I just used #each instead.
 
 
 
