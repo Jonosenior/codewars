@@ -1,4 +1,3 @@
-require 'pry'
 =begin
 
 Playing with Digits
@@ -31,14 +30,10 @@ def dig_pow(n, p)
   n.to_s.chars.map(&:to_i).each do |a|
     sum += a ** p
     p += 1
-    binding.pry
-    # sum += a + p
-    # p += 1
-
   end
-  sum
+  sum % n == 0 ? sum / n : -1
 end
 
 puts dig_pow(89, 1) # => 1
-# puts dig_pow(92, 1) # => -1
-# puts dig_pow(695, 2) # => 2
+puts dig_pow(92, 1) # => -1
+puts dig_pow(695, 2) # => 2
