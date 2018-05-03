@@ -1,5 +1,13 @@
 # Notes on 6-Kyu Challenges
 
+## Tribonacci-sequence
+  Challenge: Like the fibonacci sequence, but summing the previous 3 numbers in a sequence, rather than just 2. Given an array of 3 numbers (the 'signature') and an integer n, return n-digits of the tribonnaci sequence, starting with the signature.
+
+  Solution: Straightforward. Sum the last 3 digits of the signature, and push the sum to the end of the signature. Repeat n-3 times (because 3 digits are already provided in the signature). 
+
+  Notes: I thought capturing edge cases (eg n is less than 3, or zero) would be harder, but with Ruby's #first(x) method, you can simply return n digits of the signature with signature.first(n). Very neat.
+
+
 ## Stop-gninnips-my-sdrow.rb
 
   Challenge: Given a string, return that string but reverse all words longer than 4 characters.
@@ -7,11 +15,11 @@
   Solution: Pretty straightforward one-liner. Split the string on spaces, use #map to return each word if it's less than 5 chars, otherwise return the reverse of the word, then join the whole thing back together.
 
 ## Playing-with-digits
-    Challenge: Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p we want to find a positive integer k, if it exists, such as the sum of the digits of n taken to the successive powers of p is equal to k * n.
+  Challenge: Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p we want to find a positive integer k, if it exists, such as the sum of the digits of n taken to the successive powers of p is equal to k * n.
 
-    Solution: For each digit of n, find the power of the digit to p, then add this to the overall sum and iterate p by one. Then, divide the sum total by n and return this if it's an integer - if not return -1.
+  Solution: For each digit of n, find the power of the digit to p, then add this to the overall sum and iterate p by one. Then, divide the sum total by n and return this if it's an integer - if not return -1.
 
-    Notes: I assumed this problem would use #reduce, but I couldn't work out how to iterate an external variable (p) AND add to the sum, so I just used #each instead.
+  Notes: I assumed this problem would use #reduce, but I couldn't work out how to iterate an external variable (p) AND add to the sum, so I just used #each instead.
 
 
 
