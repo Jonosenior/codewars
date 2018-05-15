@@ -8,9 +8,9 @@ Players are ranked, with new users assigned a rating of 8 kyu, where 1 kyu is th
 
 My CodeWars profile is [here](https://www.codewars.com/users/jonosenior).
 
-As of <b>21.04.2018</b>:
+As of <b>15.05.2018</b>:
 
-* Total code challenges completed: <b>42</b>.
+* Total code challenges completed: <b>51</b>.
 
 * Overall CodeWars rank: <b>5 kyu</b>.
 
