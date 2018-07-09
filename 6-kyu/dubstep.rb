@@ -37,7 +37,7 @@ class TestSongDecoder < Minitest::Test
     assert_equal "A B C", result, "WUB should be replaced by 1 space"
   end
 
-  def test_multiple_wubs
+  def test_multiple_consecutive_wubs
     result = song_decoder("AWUBWUBWUBBWUBWUBWUBC")
     assert_equal "A B C", result, "multiples WUB should be replaced by only 1 space"
   end
@@ -49,11 +49,9 @@ class TestSongDecoder < Minitest::Test
 
   def test_only_wubs
     result = song_decoder("WUBWUBWUBWUB")
-    assert_equal "", result, "a song of only WUBs returns empty string"
+    assert_equal "", result, "a song of only WUBs should return an empty string"
   end
 end
-
-puts song_decoder("AWUBBWUBC")
 
 
 # puts song_decoder("WUBAWUBBWUBCWUB")

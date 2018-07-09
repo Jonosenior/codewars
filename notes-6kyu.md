@@ -1,9 +1,27 @@
 # Notes on 6-Kyu Challenges
 
+## Dubstep
+
+  Challenge: Given a string of something like "AWUBWUBBWUBCWUBWUB", return the characters which =/= "WUB" (removing all leading and trailing whitespace, and returning only single spaces).
+
+  Solution: Straightforward series of steps, each using gsub and regex: 1) Replace the "WUB"s with a single space, 2) Replace multiple spaces with single spaces 3) Remove trailing and heading spaces.
+
+  Notes: After having trouble working out why CodeWars was rejecting my original solution, I used Minitest to write my own test suite. This was good practice - I've previously used Minitest only with Rails - and I'll keep using it on future challenges.
+
+  I was sure that my solution was verbose, and sure enough the top-rated solution was much simpler than mine:
+
+  ```ruby
+  def song_decoder(song)
+    song.gsub(/(WUB)+/, ' ').strip
+  end
+  ```
+  This is a much more elegant use of gsub and Regex: 1) find any instance of "WUB", use "+" to match multiple, and replace with a space, then 2) Use Ruby's strip method to remove any leading or trailing whitespace. 
+
+
 ## Tribonacci-sequence
   Challenge: Like the fibonacci sequence, but summing the previous 3 numbers in a sequence, rather than just 2. Given an array of 3 numbers (the 'signature') and an integer n, return n-digits of the tribonnaci sequence, starting with the signature.
 
-  Solution: Straightforward. Sum the last 3 digits of the signature, and push the sum to the end of the signature. Repeat n-3 times (because 3 digits are already provided in the signature). 
+  Solution: Straightforward. Sum the last 3 digits of the signature, and push the sum to the end of the signature. Repeat n-3 times (because 3 digits are already provided in the signature).
 
   Notes: I thought capturing edge cases (eg n is less than 3, or zero) would be harder, but with Ruby's #first(x) method, you can simply return n digits of the signature with signature.first(n). Very neat.
 
