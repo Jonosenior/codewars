@@ -1,5 +1,15 @@
 # Notes on 6-Kyu Challenges
 
+## Duplicate Encoder
+
+  Challenge: Convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string.
+
+  Solution: Take the string, convert to an array with lower case characters, then for each character return "(" if the string contains one of that character, or ")" if it contains more than one.
+
+  Notes: I - stupidly - originally tried to solve this with a needlessly complicated nested loop, where I tried to iterate over each character and see if another character that was equal to it existed in the string. After coming back to the problem, I saw it was much easier to use Ruby's in-built count method.
+
+  I also used Minitest to run the program as a test suite, rather than just informally running the function a few times with different inputs to show that it works. Using Minitest seems to mirror the TDD environment of most workplaces, and the format acts as a spec to show exactly what my program to do, so I'll continue using it from now on. 
+
 ## Dubstep
 
   Challenge: Given a string of something like "AWUBWUBBWUBCWUBWUB", return the characters which =/= "WUB" (removing all leading and trailing whitespace, and returning only single spaces).
@@ -15,7 +25,7 @@
     song.gsub(/(WUB)+/, ' ').strip
   end
   ```
-  This is a much more elegant use of gsub and Regex: 1) find any instance of "WUB", use "+" to match multiple, and replace with a space, then 2) Use Ruby's strip method to remove any leading or trailing whitespace. 
+  This is a much more elegant use of gsub and Regex: 1) find any instance of "WUB", use "+" to match multiple, and replace with a space, then 2) Use Ruby's strip method to remove any leading or trailing whitespace.
 
 
 ## Tribonacci-sequence

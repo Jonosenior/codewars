@@ -18,28 +18,11 @@ Examples:
 =end
 
 def duplicate_encode(word)
-  ans = []
-  word.downcase.chars.each do |a|
-    word.count(a) > 1 ? ans << ")" : ans << "("
+  answer = word.downcase.chars.map do |a|
+    word.downcase.count(a) > 1 ? ")" : "("
   end
-  ans.join
+  answer.join
 end
-
-# def duplicate_encode(word)
-#   ans = []
-#   word.chars.each_with_index do |i, index1|
-#     word.chars.each_with_index do |j, index2|
-#       next if index1 == index2
-#       if i == j
-#         ans << ")"
-#         break
-#       end
-#     end
-#     ans << "("
-#   end
-#
-#   ans.join
-# end
 
 class DuplicateEncoderTest < Minitest::Test
   def test_no_duplicates
@@ -60,6 +43,11 @@ class DuplicateEncoderTest < Minitest::Test
   def test_with_symbols
     result = duplicate_encode("(( @")
     assert_equal "))((", result, "A string made of symbols should return correct result"
+  end
+
+  def test_another_capitalised_string
+    result = duplicate_encode("Supralapsarian")
+    assert_equal  ")()))()))))()(", result, "Capitalisation should be ignored"
   end
 
 
