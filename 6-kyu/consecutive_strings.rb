@@ -11,24 +11,29 @@ n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
 
 =end
 
-
+# Refactored solution
 
 def longest_consec(strarr, k)
   return "" if k < 1 || k > strarr.length
-  longest_count = 0
-  longest_str = ""
-
-  strarr.each_with_index do |a, i|
-    superstr = strarr[i .. (i + k - 1)].join
-    if superstr.length > longest_count
-      longest_str = superstr
-      longest_count = superstr.length
-    end
-  end
-  longest_str
+  strarr.each_cons(k).map(&:join).max_by(&:length)
 end
 
-# puts longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
+# Original, unrefactored solution.
+
+# def longest_consec(strarr, k)
+#   return "" if k < 1 || k > strarr.length
+#   longest_count = 0
+#   longest_str = ""
+#
+#   strarr.each_with_index do |a, i|
+#     superstr = strarr[i .. (i + k - 1)].join
+#     if superstr.length > longest_count
+#       longest_str = superstr
+#       longest_count = superstr.length
+#     end
+#   end
+#   longest_str
+# end
 
 class ConsecutiveStringTest < Minitest::Test
 

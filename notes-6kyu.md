@@ -1,5 +1,15 @@
 # Notes on 6-Kyu Challenges
 
+## Consecutive Strings
+
+  Challenge: You are given an array "strarr" of strings and an integer k. Your task is to return the first longest string consisting of "k" consecutive strings taken in the array.
+
+  Solution: My first successful solution iterates over each element, creating a range of that element to the element k slots ahead, and checking whether the string created is longer than the current longest string.
+
+  My refactored solution was made with reference to the top rated solutions on CodeWars, and implements a new (for me) Ruby method: `each_cons(x)` iterates over an array and calls the block for each array of consecutive x elements. I then join each sub-array (with `.map(&:join)`), and return the longest of them with `.max_by(&:length)`. This reduces my 11-line original solution to two lines. Not bad!
+
+  Notes: I was sure my original solution was too verbose - the clues are when I create extra variables to store the answer or running total, and when I'm using each to iterate a block and return an answer separately, rather than map. But I didn't know about the `each_cons` helper method, and I didn't think to just return the max length sub-array (as opposed to keeping a running total of the longest sub-array).
+
 ## Duplicate Encoder
 
   Challenge: Convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string.
@@ -8,7 +18,7 @@
 
   Notes: I - stupidly - originally tried to solve this with a needlessly complicated nested loop, where I tried to iterate over each character and see if another character that was equal to it existed in the string. After coming back to the problem, I saw it was much easier to use Ruby's in-built count method.
 
-  I also used Minitest to run the program as a test suite, rather than just informally running the function a few times with different inputs to show that it works. Using Minitest seems to mirror the TDD environment of most workplaces, and the format acts as a spec to show exactly what my program to do, so I'll continue using it from now on. 
+  I also used Minitest to run the program as a test suite, rather than just informally running the function a few times with different inputs to show that it works. Using Minitest seems to mirror the TDD environment of most workplaces, and the format acts as a spec to show exactly what my program to do, so I'll continue using it from now on.
 
 ## Dubstep
 
