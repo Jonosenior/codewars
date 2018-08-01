@@ -14,14 +14,47 @@ n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
 
 
 def longest_consec(strarr, k)
-  ###
+  return "" if k < 1 || k > strarr.length
+  longest_count = 0
+  longest_str = ""
+
+  strarr.each_with_index do |a, i|
+    superstr = strarr[i .. (i + k - 1)].join
+    if superstr.length > longest_count
+      longest_str = superstr
+      longest_count = superstr.length
+    end
+  end
+  longest_str
 end
+
+# puts longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
 
 class ConsecutiveStringTest < Minitest::Test
 
   def test_2_consecutive_strings
-    result = longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2)
+    result = longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
     assert_equal "abigailtheta", result
+  end
+
+  def test_1_consecutive_string
+    result = longest_consec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+    assert_equal "oocccffuucccjjjkkkjyyyeehh", result
+  end
+
+  def test_with_empty_array
+    result = longest_consec([], 3)
+    assert_equal "", result
+  end
+
+  def test_negative_k
+    result = longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)
+    assert_equal "", result
+  end
+
+  def test_k_larger_than_array_length
+    result = longest_consec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15)
+    assert_equal "", result
   end
 
 end
